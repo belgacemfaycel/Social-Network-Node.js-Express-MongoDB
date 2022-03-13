@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/belgacemfaycel/Social-Network-Node.js-Express-MongoDB/issues"
   },
-  "homepage": "https://github.com/belgacemfaycel/Social-Network-Node.js-Express-MongoDB#readme"
+  "homepage": "https://github.com/belgacemfaycel/Social-Network-Node.js-Express-MongoDB#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
