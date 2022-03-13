@@ -4,7 +4,40 @@ const postRoutes = require('./routes/post');
 const bodyParser = require('body-parser')
 const path = require('path');
 
+const swaggerJsdoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
+
+
+
 const app = express();
+const options = {
+    definition: {
+      openapi: "3.0.0",
+      info: {
+        title: "Social network API with Swagger",
+        version: "0.1.0",
+        description:
+          "Social network application made with Express and documented with Swagger",
+        license: {
+          name: "MIT",
+          url: "https://spdx.org/licenses/MIT.html",
+        },
+      },
+      servers: [
+        {
+          url: "http://localhost:3000/post",
+        },
+      ],
+    },
+    apis: ["./routes/post.js"],
+  };
+  
+  const specs = swaggerJsdoc(options);
+  app.use(
+    "/api-docs",
+    swaggerUi.serve,
+    swaggerUi.setup(specs, { explorer: true })
+  );
 app.use(express.json());
 app.use((req,res,next)=>{
     res.setHeader('Access-Control-Allow-Origin', '*');

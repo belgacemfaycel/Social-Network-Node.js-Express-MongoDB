@@ -3,7 +3,6 @@ const app = require('./app');
 const mongoose = require('mongoose');
 const config = require('./config');
 
-
 mongoose.connect(config.database.url,
     config.database.connection)
   .then(() => console.log('Connexion à MongoDB réussie !'))
